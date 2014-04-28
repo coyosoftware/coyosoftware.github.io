@@ -45,6 +45,12 @@
 								<li>"ip" => IP da máquina que fez a solicitação.</li>
 							</ul>						
 						  </div>
+						  <div class="panel-body">
+							<p><b>Exemplo</b></p>
+							<p>Request: http://www.oneview.com.br/api/senders/ack?access_token=952300dd6adjo868583897cfe09abcd5 </p>
+							200 OK </p>
+							<p>Response Body: {"ip":"184.113.225.213"}</p>
+						  </div>
 						</div>
 
 						<div class="panel panel-default">
@@ -71,9 +77,15 @@
 							<ul>Erros gerais
 						        <li>900:invalid_account => Conta inválida</li>
 						        <li>990:payment_required => A conta não possui créditos para envio de sms</li>
-
 							</ul>
-						  </div>
+						 </div>
+						 <div class="panel-body">
+							<p><b>Exemplo</b></p>
+							<p>Request: http://www.oneview.com.br/api/senders/send_sms; Content-Type: application/json;</p>
+							<p>Request Body: {"access_token":"952300dd6adjo868583897cfe09abcd5","message":"Teste", "numbers": "5512999999999,5512999999998", "schedule": "28/04/2014 16:46"}</p>
+							<p>Response: 200 OK</p>
+							<p>Response Body: {"status":"000","message":"Mensagem enviada com sucesso"}</p>
+							</div>
 						</div>
 					</div>
 
