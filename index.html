@@ -21,12 +21,10 @@
 			<div class="row">
 				<div class="col-sm-4">
 				<div class="fixed">
-						<h1>Oneview API</h1>
+					<p><img src="image/logo.png" width="100%"></p>	
 						<br />
 						<div class="list-group" role="nav">
 						  <a href="#sender" class="list-group-item">Sender</a>
-						  <a href="#contact" class="list-group-item">Contact</a>
-						  <a href="#access-token" class="list-group-item">Access Token</a>
 						  <a href="#how-find-token" class="list-group-item">Como encontrar o Token de Acesso?</a>
 						</div>
 					</div>
@@ -37,10 +35,12 @@
 						<h2>Sender</h2>
 
 						<div class="panel panel-default">
-						  <div class="panel-heading">ack</div>
+						  <div class="panel-heading">
+							  <p>GET ack: Retorna o IP da máquina que realizou a requisição</p>
+							  <p>www.oneview.com.br/api/senders/ack</p>
+						  </div>
 						  <div class="panel-body">
-						    <p>parameters: no_param</p>
-						    <p>return: </p>
+						    <p>Retorno da Chamada</p>
 							<ul>
 								<li>"ip" => IP da máquina que fez a solicitação.</li>
 							</ul>						
@@ -48,46 +48,31 @@
 						</div>
 
 						<div class="panel panel-default">
-						  <div class="panel-heading">send_sms</div>
+						  <div class="panel-heading">
+							  <p>POST send_sms: Envia uma mensagem de SMS para um ou mais celulares de destino</p>
+						  	  <p>www.oneview.com.br/api/senders/send_sms</p>
+						  </div>
 						  <div class="panel-body">
-						  	<p>parameters:</p>
+						  	<p>Parâmetros de Entrada</p>
 							<ul>
 								<li>:access_token => Token de acesso - (string)</li>
-								<li>:message => Mensagem - (string)</li>
-								<li>:numbers => Lista de números separados por vírgula - (string)</li>
+								<li>:message => Mensagem de envio - (string)</li>
+								<li>:numbers => Números de celulares de destino separados por vírgula - (string)</li>
 							</ul>
-							<p>return: Código e mensagem de retorno</p>
-							<ul>
-								
-						        <li>010:empty_message: Mensagem vazia</li>
-						        <li>014:empty_number: Mensagem sem número de destinatário</li>
-						        <li>013:incorrect_number: Número de destinatário incorreto</li>
-						        <li>900:invalid_account: Conta inválida</li>
-						        <li>990:payment_required: A conta não possui créditos para envio de sms</li>
-						        <li>000:send_success: Mensagem enviada com sucesso</li>
+							<p>Retorno da Chamada</p>
+							<ul> Sucesso
+								<li>000:send_success => Mensagem enviada com sucesso</li>
 							</ul>
-						  </div>
-						</div>
-					</div>
+							<ul>Erros de envio
+						        <li>010:empty_message => Mensagem vazia</li>
+						        <li>014:empty_number => Mensagem sem número de destinatário</li>
+						        <li>013:incorrect_number => Número de destinatário incorreto</li>
+							</ul>
+							<ul>Erros gerais
+						        <li>900:invalid_account => Conta inválida</li>
+						        <li>990:payment_required => A conta não possui créditos para envio de sms</li>
 
-					<div id="contact" class="block">
-						<h2>Contact</h2>
-
-						<div class="panel panel-default">
-						  <div class="panel-heading">Título</div>
-						  <div class="panel-body">
-						  	<p>Texto</p>							
-						  </div>
-						</div>
-					</div>
-
-					<div id="access-token" class="block">
-						<h2>Access Token</h2>
-
-						<div class="panel panel-default">
-						  <div class="panel-heading">Título</div>
-						  <div class="panel-body">
-						  	<p>Texto</p>							
+							</ul>
 						  </div>
 						</div>
 					</div>
@@ -96,9 +81,10 @@
 						<h3>Como encontrar o Token de Acesso?</h3>
 
 						<div class="panel panel-default">
-						  <div class="panel-heading">Acessar o minha conta</div>
+						  <div class="panel-heading">Acessar o detalhe conta:
+						  <a href="http://oneview.com.br/edit" target="_blank">http://oneview.com.br/edit</a>
+						  </div>
 						  <div class="panel-body">
-						  	<p>Acesse: <a href="http://oneview.com.br/edit" target="_blank">http://oneview.com.br/edit</a></p>
 							<p><img src="image/token.png" width="100%"></p>							
 						  </div>
 						</div>						
@@ -110,7 +96,11 @@
 
 		
 		<div class="footer">
-			<div class="container">Coyô Software - todos os direitos reservados.</div>
+			<div class="container">
+				<!--a href="www.coyo.com.br">
+					<img src="image/coyo.png">
+				</a-->Coyô Software - todos os direitos reservados.
+			</div>
 		</div>
 		
 		<script>
