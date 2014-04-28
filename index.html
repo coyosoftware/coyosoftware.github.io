@@ -18,28 +18,48 @@
 
 
 	<body>
-		<h1>ONEVIEW API</h1>
+		<h1>Oneview API</h1>
 
 		<h2>Sender</h2>
 
 		<div>
-			<div>ack
-				<div>parameters: no_param</div>
-				<div>return: "ip" => IP da máquina que fez a solicitação.</div>
-			</div>
-			<div>send_sms</div>
+			<h3>ack</h3>
+			<ul>parameters: no_param</ul>
+			<ul>return: 
+				<li>"ip" => IP da máquina que fez a solicitação.</li>
+			</ul>
+			
+			<h3>send_sms</h3>
+			<ul>parameters:
+				<li>:access_token => Token de acesso - (string)</li>
+				<li>:message => Mensagem - (string)</li>
+				<li>:numbers => Lista de números separados por vírgula - (string)</li>
+			</ul>
+			<ul>return: Código e mensagem de retorno
+				
+		        <li>010:empty_message: Mensagem vazia</li>
+		        <li>014:empty_number: Mensagem sem número de destinatário</li>
+		        <li>013:incorrect_number: Número de destinatário incorreto</li>
+		        <li>900:invalid_account: Conta inválida</li>
+		        <li>990:payment_required: A conta não possui créditos para envio de sms</li>
+		        <li>000:send_success: Mensagem enviada com sucesso</li>
+			</ul>
 		</div>
 
 		<h2>Contact</h2>
 
 		<h2>Access Token</h2>
 
-		<div>Como encontrar o Token de Acesso?</div>
+		<h3>Como encontrar o Token de Acesso?</h3>
+		
 		<div>Acessar o minha conta: http://oneview.com.br/edit</div>
-		<img src="image/token.png">
+		<div><img src="image/token.png"></div>
 
-
-
+		
+		<div>
+			<span>Coyô Software - todos os direitos reservados.</span>
+		</div>
+		
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -50,8 +70,5 @@
 		  ga('send', 'pageview');
 
 		</script>
-		<div>
-			<span>Coyô Software - todos os direitos reservados.</span>
-		</div>
 	</body>
 </html>
