@@ -25,7 +25,7 @@
 						<br />
 						<div class="list-group" role="nav">
 						  <a href="#senders" class="list-group-item">Senders</a>
-						  <a href="#how-find-token" class="list-group-item">Como encontrar o Token de Acesso??</a>
+						  <a href="#how-find-token" class="list-group-item">Como encontrar o Token de Acesso?</a>
 						</div>
 					</div>
 				</div>
@@ -64,6 +64,7 @@
 								<li>:access_token => Token de acesso - (string)</li>
 								<li>:message => Mensagem de envio - (string)</li>
 								<li>:numbers => Números de celulares de destino separados por vírgula - (string)</li>
+								<li>:schedule => Data e Hora para o envio dos SMS, no padrão "dd/mm/aaaa hh:mm timezone" [se omitido, o envio é imediato] - (string)</li>
 							</ul>
 							<p>Retorno da Chamada (JSON)</p>
 							<ul> Sucesso
@@ -71,8 +72,8 @@
 							</ul>
 							<ul>Erros de envio
 						        <li>010:empty_message => Mensagem vazia</li>
+						        <li>013:incorrect_number => Número de destinatário inválido</li>
 						        <li>014:empty_number => Mensagem sem número de destinatário</li>
-						        <li>013:incorrect_number => Número de destinatário incorreto</li>
 							</ul>
 							<ul>Erros gerais
 						        <li>900:invalid_account => Conta inválida</li>
@@ -83,6 +84,46 @@
 							<p><b>Exemplo</b></p>
 							<p>Request: http://www.oneview.com.br/api/senders/send_sms; Content-Type: application/json;</p>
 							<p>Request Body: {"access_token":"952300dd6adjo868583897cfe09abcd5","message":"Teste", "numbers": "5512999999999,5512999999998", "schedule": "28/04/2014 16:46 -0300"}</p>
+							<p>Response: 200 OK</p>
+							<p>Response Body: {"status":"000","message":"Mensagem enviada com sucesso"}</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-default">
+						  <div class="panel-heading">
+							  <p>POST send_email: Envia uma mensagem de Email para um ou mais destinatários</p>
+						  	  <p>www.oneview.com.br/api/senders/send_email</p>
+						  </div>
+						  <div class="panel-body">
+						  	<p>Parâmetros de Entrada (JSON)</p>
+							<ul>
+								<li>:access_token => Token de acesso - (string)</li>
+								<li>:from => Remetente do Email - (string)</li>
+								<li>:to => Destinatários do Email separados por vírgula - (string)</li>
+								<li>:subject => Título do email - (string)</li>
+								<li>:body => Corpo do email, pode conter tags HTML - (string)</li>
+								<li>:schedule => Data e Hora para o envio dos SMS, no padrão "dd/mm/aaaa hh:mm timezone" [se omitido, o envio é imediato] - (string)</li>
+							</ul>
+							<p>Retorno da Chamada (JSON)</p>
+							<ul> Sucesso
+								<li>000:send_success => Email enviado com sucesso</li>
+							</ul>
+							<ul>Erros de envio
+						        <li>020:empty_message => Corpo do email vazio</li>
+						        <li>021:empty_subject => Título do email vazio</li>
+						        <li>023:incorrect_email => Email de destinatário/remetente inválido</li>
+						        <li>024:empty_receipts => Email de destinatários</li>
+						        <li>025:empty_from => Remetente vazio</li>
+							</ul>
+							<ul>Erros gerais
+						        <li>900:invalid_account => Conta inválida</li>
+						        <li>990:payment_required => A conta não possui créditos para envio de email</li>
+							</ul>
+						 </div>
+						 <div class="panel-body">
+							<p><b>Exemplo</b></p>
+							<p>Request: http://www.oneview.com.br/api/senders/send_email; Content-Type: application/json;</p>
+							<p>Request Body: {"access_token": "952300dd6adjo868583897cfe09abcd5", "body": "Se você <b>recebeu</b> isso, a API funciona!", "subject": "Envio Email via API", "from": "contato@empresa.com", "to": "cliente@empresa.com.br,cliente@empresa2.com.br", "schedule": "28/04/2014 16:46 -0300"}</p>
 							<p>Response: 200 OK</p>
 							<p>Response Body: {"status":"000","message":"Mensagem enviada com sucesso"}</p>
 							</div>
